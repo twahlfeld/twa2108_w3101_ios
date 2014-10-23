@@ -60,7 +60,9 @@
     if(pickedFromLibrary == YES) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     } else {
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        } else {
             UIAlertView *noCameraAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                     message:@"Device has no camera"
                                                                    delegate:nil
@@ -69,8 +71,6 @@
             
             [noCameraAlert show];
             return;
-        } else {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
     }
     [self presentViewController:imagePicker animated:YES completion:NULL];

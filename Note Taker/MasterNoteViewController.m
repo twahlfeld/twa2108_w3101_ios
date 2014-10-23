@@ -6,21 +6,26 @@
 //  Copyright (c) 2014 Theodore Ahlfeld. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MasterNoteViewController.h"
 #import "NoteTableViewCell.h"
+#import "NoteList.h"
+#import "NoteData.h"
 
-@interface ViewController ()
+@interface MasterNoteViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *noteTableView;
+@property (strong, nonatomic) NoteList *listOfNotes;
 
 @end
 
-@implementation ViewController
+@implementation MasterNoteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.listOfNotes = [NoteList noteSingleton];
     self.noteTableView.delegate = self;
-    self.noteTableView.dataSource = self;
+    self.noteTableView.dataSource = self; 
     
     
     // Add a comment
@@ -48,7 +53,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.noteDataArray.count;
+    return 5;//[self.listOfNotes getNumberOfNote];
 }
 
 #pragma mark - TableView Delegate Methods
@@ -60,6 +65,14 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"Deleting note at position : %ld", indexPath.row);
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"noteDetailViewSegue"])
+        NSLog(@"FUCKING SEGUE BITCH");
+    else
+        NSLog(@"SOME OTHER BULLSHIT");
 }
 
 @end

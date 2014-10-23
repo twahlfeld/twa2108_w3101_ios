@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Note Taker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MasterNoteViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="117" id="oQk-wv-cft" customClass="NoteTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="117" id="oQk-wv-cft" customClass="NoteTableViewCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oQk-wv-cft" id="GVQ-TF-7DI">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -70,6 +70,7 @@
                                             <outlet property="noteImage" destination="kic-Rj-mjp" id="JYy-Uk-JBJ"/>
                                             <outlet property="noteText" destination="Lnh-IC-zRX" id="fLn-dt-noM"/>
                                             <outlet property="noteTitle" destination="cuN-fQ-7be" id="ltl-Wk-ZBj"/>
+                                            <segue destination="2Zn-Wd-vuI" kind="show" identifier="noteDetailViewSegue" id="3MV-2r-c3b"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -83,10 +84,10 @@
                             <constraint firstItem="01v-8B-QzM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="fsa-ho-LeL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="nS2-4J-AYp">
+                    <navigationItem key="navigationItem" title="Note Taker" id="nS2-4J-AYp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fEX-Gy-nmD">
                             <connections>
-                                <segue destination="2Zn-Wd-vuI" kind="show" id="AAN-Cw-phg"/>
+                                <segue destination="2Zn-Wd-vuI" kind="show" identifier="addDetailViewSegue" id="AAN-Cw-phg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,8 +119,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VsG-hE-XGh">
-                                <rect key="frame" x="16" y="368" width="568" height="224"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsG-hE-XGh">
+                                <rect key="frame" x="16" y="368" width="568" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -182,4 +183,7 @@
     <resources>
         <image name="defaultImage" width="152" height="152"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3MV-2r-c3b"/>
+    </inferredMetricsTieBreakers>
 </document>

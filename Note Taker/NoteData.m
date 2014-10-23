@@ -18,9 +18,11 @@
 -(id)initWithNoteData:(NSString *)title noteBody:(NSString *)text image:(UIImage *)image
 {
     self = [super init];
-    self.noteTitle = title;
-    self.noteText = text;
-    self.noteImage = image;
+    if(self) {
+        self.noteTitle = title;
+        self.noteText = text;
+        self.noteImage = image;
+    }
     return self;
 }
 

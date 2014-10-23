@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		9F02EEEC19F80E6B0043F570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EEEB19F80E6B0043F570 /* main.m */; };
 		9F02EEEF19F80E6B0043F570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EEEE19F80E6B0043F570 /* AppDelegate.m */; };
-		9F02EEF219F80E6B0043F570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EEF119F80E6B0043F570 /* ViewController.m */; };
+		9F02EEF219F80E6B0043F570 /* MasterNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EEF119F80E6B0043F570 /* MasterNoteViewController.m */; };
 		9F02EEF519F80E6B0043F570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F02EEF319F80E6B0043F570 /* Main.storyboard */; };
 		9F02EEF719F80E6B0043F570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F02EEF619F80E6B0043F570 /* Images.xcassets */; };
 		9F02EEFA19F80E6B0043F570 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F02EEF819F80E6B0043F570 /* LaunchScreen.xib */; };
 		9F02EF0619F80E6B0043F570 /* Note_TakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EF0519F80E6B0043F570 /* Note_TakerTests.m */; };
 		9F02EF1119F810BD0043F570 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F02EF1019F810BD0043F570 /* NoteTableViewCell.m */; };
+		9F57955D19F99212008E1457 /* NoteList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F57955C19F99212008E1457 /* NoteList.m */; };
 		9FE7826819F8161C0038E4DC /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7826619F8161C0038E4DC /* NoteDetailViewController.m */; };
 		9FE7826C19F817800038E4DC /* NoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE7826B19F817800038E4DC /* NoteData.m */; };
 /* End PBXBuildFile section */
@@ -35,8 +36,8 @@
 		9F02EEEB19F80E6B0043F570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F02EEED19F80E6B0043F570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9F02EEEE19F80E6B0043F570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9F02EEF019F80E6B0043F570 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9F02EEF119F80E6B0043F570 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9F02EEF019F80E6B0043F570 /* MasterNoteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterNoteViewController.h; sourceTree = "<group>"; };
+		9F02EEF119F80E6B0043F570 /* MasterNoteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterNoteViewController.m; sourceTree = "<group>"; };
 		9F02EEF419F80E6B0043F570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F02EEF619F80E6B0043F570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9F02EEF919F80E6B0043F570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -45,6 +46,8 @@
 		9F02EF0519F80E6B0043F570 /* Note_TakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Note_TakerTests.m; sourceTree = "<group>"; };
 		9F02EF0F19F810BD0043F570 /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
 		9F02EF1019F810BD0043F570 /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		9F57955B19F99212008E1457 /* NoteList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteList.h; sourceTree = "<group>"; };
+		9F57955C19F99212008E1457 /* NoteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteList.m; sourceTree = "<group>"; };
 		9FE7826519F8161C0038E4DC /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
 		9FE7826619F8161C0038E4DC /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
 		9FE7826A19F817800038E4DC /* NoteData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteData.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 			children = (
 				9FE7826A19F817800038E4DC /* NoteData.h */,
 				9FE7826B19F817800038E4DC /* NoteData.m */,
+				9F57955B19F99212008E1457 /* NoteList.h */,
+				9F57955C19F99212008E1457 /* NoteList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -149,8 +154,8 @@
 		9FE7827019F840070038E4DC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9F02EEF019F80E6B0043F570 /* ViewController.h */,
-				9F02EEF119F80E6B0043F570 /* ViewController.m */,
+				9F02EEF019F80E6B0043F570 /* MasterNoteViewController.h */,
+				9F02EEF119F80E6B0043F570 /* MasterNoteViewController.m */,
 				9FE7826519F8161C0038E4DC /* NoteDetailViewController.h */,
 				9FE7826619F8161C0038E4DC /* NoteDetailViewController.m */,
 			);
@@ -268,10 +273,11 @@
 			files = (
 				9FE7826819F8161C0038E4DC /* NoteDetailViewController.m in Sources */,
 				9FE7826C19F817800038E4DC /* NoteData.m in Sources */,
-				9F02EEF219F80E6B0043F570 /* ViewController.m in Sources */,
+				9F02EEF219F80E6B0043F570 /* MasterNoteViewController.m in Sources */,
 				9F02EEEF19F80E6B0043F570 /* AppDelegate.m in Sources */,
 				9F02EEEC19F80E6B0043F570 /* main.m in Sources */,
 				9F02EF1119F810BD0043F570 /* NoteTableViewCell.m in Sources */,
+				9F57955D19F99212008E1457 /* NoteList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

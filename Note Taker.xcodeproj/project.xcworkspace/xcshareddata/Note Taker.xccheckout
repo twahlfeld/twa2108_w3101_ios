@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FFA81734-7A7E-42D4-9CCC-7EDE047F0CB3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Note Taker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0596A7EB06D54C6E89A6E7F2C32E2F253EB36AE5</key>
+		<string>https://github.com/twahlfeld/twa2108_w3101_ios.git</string>
+		<key>78C98CFA5DBD9C302B2E7CE4E23F4B253EBCDCE7</key>
+		<string>https://github.com/twahlfeld/twa2108_w3101_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Note Taker.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0596A7EB06D54C6E89A6E7F2C32E2F253EB36AE5</key>
+		<string>../..</string>
+		<key>78C98CFA5DBD9C302B2E7CE4E23F4B253EBCDCE7</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/twahlfeld/twa2108_w3101_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0596A7EB06D54C6E89A6E7F2C32E2F253EB36AE5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78C98CFA5DBD9C302B2E7CE4E23F4B253EBCDCE7</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0596A7EB06D54C6E89A6E7F2C32E2F253EB36AE5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Note%20Taker</string>
+		</dict>
+	</array>
+</dict>
+</plist>
