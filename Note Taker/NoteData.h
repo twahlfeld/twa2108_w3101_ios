@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface NoteData : NSObject
+static NSString *const DEFAULT_TITLE = @"Note Title";
+static NSString *const DEFAULT_TEXT = @"Note Title";
+static NSString *const DEFAULT_IMAGE = @"defaultImage";
+
+@interface NoteData : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *noteTitle;
 @property (strong, nonatomic) NSString *noteText;
 @property (strong, nonatomic) UIImage *noteImage;
+
+-(id)initWithNoteData:(NSString *)title noteBody:(NSString *)text image:(UIImage *)image;
 
 @end
