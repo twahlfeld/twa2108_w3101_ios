@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "NoteData.h"
+#import "NoteList.h"
 
 @interface NoteDetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *noteTitle;
-@property (weak, nonatomic) IBOutlet UITextView *noteText;
-@property (weak, nonatomic) IBOutlet UIImageView *noteImageView;
+@property (strong, nonatomic) NoteData *thisNote;
 
 @end

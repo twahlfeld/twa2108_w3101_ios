@@ -18,7 +18,8 @@ static NSString *const DEFAULT_IMAGE = @"defaultImage";
 @property (strong, nonatomic) NSString *noteTitle;
 @property (strong, nonatomic) NSString *noteText;
 @property (strong, nonatomic) UIImage *noteImage;
+@property (strong, nonatomic) NSDate *noteTime;
 
--(id)initWithNoteData:(NSString *)title noteBody:(NSString *)text image:(UIImage *)image;
+-(id)initWithNoteData:(NSString *)title noteBody:(NSString *)text image:(UIImage *)image time:(NSDate *)date;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MasterNoteViewController.h"
 #import "NoteTableViewCell.h"
+#import "NoteDetailViewController.h"
 #import "NoteList.h"
 #import "NoteData.h"
 
@@ -34,6 +35,13 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"noteCell" forIndexPath:indexPath];
+    NoteData *thisNote = [self.listOfNotes getNoteAtIndex:indexPath.row];
+    if(thisNote) {
+        cell.noteTitle.text = [thisNote noteTitle];
+        cell.noteText.text = [thisNote noteText];
+        cell.noteImageView.image = [thisNote noteImage];
+        cell.noteTime.text = [[[NSDateFormatter alloc] init] stringFromDate:[thisNote noteTime]];
+    }
     
     return cell;
 }
@@ -53,7 +61,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;//[self.listOfNotes getNumberOfNote];
+    return [self.listOfNotes getNumberOfNotes];
 }
 
 #pragma mark - TableView Delegate Methods
@@ -69,10 +77,13 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"noteDetailViewSegue"])
-        NSLog(@"FUCKING SEGUE BITCH");
-    else
-        NSLog(@"SOME OTHER BULLSHIT");
+    NSIndexPath *noteIndexPath = [self.noteTableView indexPathForSelectedRow];
+    NoteDetailViewController *ndvc = segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"noteDetailViewSegue"]) {
+        ndvc.thisNote = [self.listOfNotes getNoteAtIndex:noteIndexPath.row];
+    } else {
+        ndvc.thisNote = nil;
+    }
 }
 
 @end

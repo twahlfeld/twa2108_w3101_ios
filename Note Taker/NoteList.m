@@ -29,10 +29,17 @@
     return self;
 }
 
--(void)addNoteToNoteList:(NSString *)title noteBody:(NSString *)noteBody image:(UIImage *)image
+-(void)addNoteToNoteList:(NSString *)title noteBody:(NSString *)noteBody image:(UIImage *)image time:(NSDate *)time
 {
-    NoteData *newNote = [[NoteData alloc] initWithNoteData:title noteBody:noteBody image:image];
+    NoteData *newNote = [[NoteData alloc] initWithNoteData:title noteBody:noteBody image:image time:time];
     [self.listOfNotes addObject:newNote];
+}
+
+-(NoteData *)getNoteAtIndex:(NSInteger)index
+{
+    if(index > 0 && index < self.listOfNotes.count)
+        return self.listOfNotes[index];
+    return nil;
 }
 
 -(void)saveNotes
@@ -54,7 +61,7 @@
     return [documentDirectory stringByAppendingString:@"Note_Taker"];
 }
 
--(NSInteger)getNumberOfNote
+-(NSInteger)getNumberOfNotes
 {
     return self.listOfNotes.count;
 }

@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *noteTitle;
 @property (weak, nonatomic) IBOutlet UILabel *noteText;
-@property (weak, nonatomic) IBOutlet UIImageView *noteImage;
+@property (weak, nonatomic) IBOutlet UIImageView *noteImageView;
+@property (weak, nonatomic) IBOutlet UILabel *noteTime;
 
 @end

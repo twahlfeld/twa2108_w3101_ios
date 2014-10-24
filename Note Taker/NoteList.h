@@ -14,9 +14,10 @@
 @property NSMutableArray *listOfNotes;
 
 +(instancetype)noteSingleton;
--(void)addNoteToNoteList:(NSString *)title noteBody:(NSString *)noteBody image:(UIImage *)image;
+-(void)addNoteToNoteList:(NSString *)title noteBody:(NSString *)noteBody image:(UIImage *)image time:(NSDate *)time;
+-(NoteData *)getNoteAtIndex:(NSInteger)index;
 -(void)saveNotes;
 -(void)loadNotes;
--(NSInteger)getNumberOfNote;
+-(NSInteger)getNumberOfNotes;
 
 @end

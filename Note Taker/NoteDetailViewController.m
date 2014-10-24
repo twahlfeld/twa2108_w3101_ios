@@ -10,6 +10,10 @@
 
 @interface NoteDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *noteTitle;
+@property (weak, nonatomic) IBOutlet UITextView *noteText;
+@property (weak, nonatomic) IBOutlet UIImageView *noteImageView;
+
 @end
 
 @implementation NoteDetailViewController
@@ -18,7 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationButtons];
+    if(self.thisNote != nil) {
+        self.noteTitle.text = [self.thisNote noteTitle];
+        self.noteText.text = [self.thisNote noteText];
+        self.noteImageView.image = [self.thisNote noteImage];
+    }
 }
+
+
 
 - (void)setUpNavigationButtons {
     // Do any additional setup after loading the view from its nib.
@@ -142,7 +153,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -150,6 +161,17 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    if(self.thisNote == nil) {
+        [[NoteList noteSingleton] addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
+    } else {
+        [self.thisNote setNoteTitle:self.noteTitle.text];
+        [self.thisNote setNoteText:self.noteText.text];
+        [self.thisNote setNoteImage:self.noteImageView.image];
+    }
+}
+
 
 @end
