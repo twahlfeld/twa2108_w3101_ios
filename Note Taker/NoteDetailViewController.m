@@ -164,13 +164,17 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    if(self.thisNote == nil) {
-        [[NoteList noteSingleton] addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
-    } else {
-        [self.thisNote setNoteTitle:self.noteTitle.text];
-        [self.thisNote setNoteText:self.noteText.text];
-        [self.thisNote setNoteImage:self.noteImageView.image];
-    }
+    //if(![self.noteTitle isEqual:@""]) {
+        NoteList *listOfNotes = [NoteList noteSingleton];
+        if(self.thisNote == nil) {
+            [listOfNotes addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
+        } else {
+            [self.thisNote setNoteTitle:self.noteTitle.text];
+            [self.thisNote setNoteText:self.noteText.text];
+            [self.thisNote setNoteImage:self.noteImageView.image];
+        }
+        [listOfNotes saveNotes];
+    //}
 }
 
 

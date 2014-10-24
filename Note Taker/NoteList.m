@@ -35,9 +35,14 @@
     [self.listOfNotes addObject:newNote];
 }
 
+-(void)removeNoteFromNoteList:(NSInteger)index
+{
+    [noteList]
+}
+
 -(NoteData *)getNoteAtIndex:(NSInteger)index
 {
-    if(index > 0 && index < self.listOfNotes.count)
+    if(index >= 0 && index < self.listOfNotes.count)
         return self.listOfNotes[index];
     return nil;
 }
@@ -47,18 +52,24 @@
     NSData *savedListOfNotes = [NSKeyedArchiver archivedDataWithRootObject:self.listOfNotes];
     NSString *saveLocation = [self filePath];
     [savedListOfNotes writeToFile:saveLocation atomically:YES];
+    
+    
 }
 
 -(void)loadNotes
 {
-    NSData *loadedListOfNote = [[NSData alloc] initWithContentsOfFile:[self filePath]];
-    self.listOfNotes = [NSKeyedUnarchiver unarchiveObjectWithData:loadedListOfNote];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[self filePath]]) {
+        NSData *data = [NSData dataWithContentsOfFile:[self filePath]];
+        self.listOfNotes = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
 }
 
 -(NSString *)filePath
 {
-    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) firstObject];
-    return [documentDirectory stringByAppendingString:@"Note_Taker"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"noteTaker"];
+    return filePath;
 }
 
 -(NSInteger)getNumberOfNotes

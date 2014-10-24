@@ -25,11 +25,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.listOfNotes = [NoteList noteSingleton];
+    [self.listOfNotes loadNotes];
     self.noteTableView.delegate = self;
-    self.noteTableView.dataSource = self; 
-    
-    
-    // Add a comment
+    self.noteTableView.dataSource = self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.listOfNotes = [NoteList noteSingleton];
+    [self.listOfNotes loadNotes];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -40,10 +44,19 @@
         cell.noteTitle.text = [thisNote noteTitle];
         cell.noteText.text = [thisNote noteText];
         cell.noteImageView.image = [thisNote noteImage];
-        cell.noteTime.text = [[[NSDateFormatter alloc] init] stringFromDate:[thisNote noteTime]];
+        cell.noteTime.text = [self stringOfDateAndTime:[thisNote noteTime]];
     }
     
     return cell;
+}
+
+-(NSString *)stringOfDateAndTime:(NSDate *)time
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH:mm:ss"];
+    return [NSString stringWithFormat:@"%@ %@", [dateFormat stringFromDate:time], [timeFormat stringFromDate:time]];
 }
 
 
@@ -72,7 +85,8 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Deleting note at position : %ld", indexPath.row);
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

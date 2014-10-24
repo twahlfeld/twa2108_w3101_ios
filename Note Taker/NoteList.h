@@ -15,6 +15,7 @@
 
 +(instancetype)noteSingleton;
 -(void)addNoteToNoteList:(NSString *)title noteBody:(NSString *)noteBody image:(UIImage *)image time:(NSDate *)time;
+-(void)removeNoteFromNoteList:(NSInteger)index;
 -(NoteData *)getNoteAtIndex:(NSInteger)index;
 -(void)saveNotes;
 -(void)loadNotes;
