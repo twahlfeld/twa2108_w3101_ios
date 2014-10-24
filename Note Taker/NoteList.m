@@ -37,7 +37,7 @@
 
 -(void)removeNoteFromNoteList:(NSInteger)index
 {
-    [noteList]
+    [self.listOfNotes removeObjectAtIndex:index];
 }
 
 -(NoteData *)getNoteAtIndex:(NSInteger)index

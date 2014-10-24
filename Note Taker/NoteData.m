@@ -10,10 +10,10 @@
 
 @implementation NoteData
 
--(instancetype)init
-{
-    return [self initWithNoteData:DEFAULT_TITLE noteBody:DEFAULT_TEXT image:[UIImage imageNamed:DEFAULT_IMAGE] time:[NSDate date]];
-}
+//-(instancetype)init
+//{
+//    return [self initWithNoteData:DEFAULT_TITLE noteBody:DEFAULT_TEXT image:[UIImage imageNamed:DEFAULT_IMAGE] time:[NSDate date]];
+//}
 
 -(id)initWithNoteData:(NSString *)title noteBody:(NSString *)text image:(UIImage *)image time:(NSDate *)date
 {

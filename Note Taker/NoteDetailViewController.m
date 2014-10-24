@@ -164,7 +164,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    //if(![self.noteTitle isEqual:@""]) {
+    if(![self.noteTitle isEqual:@""]) {
         NoteList *listOfNotes = [NoteList noteSingleton];
         if(self.thisNote == nil) {
             [listOfNotes addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
@@ -174,7 +174,7 @@
             [self.thisNote setNoteImage:self.noteImageView.image];
         }
         [listOfNotes saveNotes];
-    //}
+    }
 }
 
 

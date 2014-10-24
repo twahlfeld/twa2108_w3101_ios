@@ -24,8 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.listOfNotes = [NoteList noteSingleton];
-    [self.listOfNotes loadNotes];
     self.noteTableView.delegate = self;
     self.noteTableView.dataSource = self;
 }
@@ -34,6 +32,7 @@
 {
     self.listOfNotes = [NoteList noteSingleton];
     [self.listOfNotes loadNotes];
+    [self.noteTableView reloadData];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,8 +84,11 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:YES];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.listOfNotes removeNoteFromNoteList:indexPath.row];
+        [self.listOfNotes saveNotes];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
