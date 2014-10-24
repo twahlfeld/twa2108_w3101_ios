@@ -30,6 +30,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
     self.listOfNotes = [NoteList noteSingleton];
     [self.listOfNotes loadNotes];
     [self.noteTableView reloadData];

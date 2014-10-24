@@ -52,8 +52,6 @@
     NSData *savedListOfNotes = [NSKeyedArchiver archivedDataWithRootObject:self.listOfNotes];
     NSString *saveLocation = [self filePath];
     [savedListOfNotes writeToFile:saveLocation atomically:YES];
-    
-    
 }
 
 -(void)loadNotes

@@ -30,12 +30,12 @@
 }
 
 
-
 - (void)setUpNavigationButtons {
     // Do any additional setup after loading the view from its nib.
     UIBarButtonItem *cameraBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(pickImageSource:)];
     UIBarButtonItem *shareBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(emailNote:)];
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:shareBarButton, cameraBarButton, nil] animated:YES];
+    UIBarButtonItem *saveNoteButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveNoteData:)];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:saveNoteButton, shareBarButton, cameraBarButton, nil] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +43,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Save
+
+-(IBAction)saveNoteData:(UIBarButtonItem *)sender
+{
+    if([self.noteTitle isEqual:@""]) {
+        return;
+    }
+    NoteList *listOfNotes = [NoteList noteSingleton];
+    if(self.thisNote == nil) {
+        [listOfNotes addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
+    } else {
+        [self.thisNote setNoteTitle:self.noteTitle.text];
+        [self.thisNote setNoteText:self.noteText.text];
+        [self.thisNote setNoteImage:self.noteImageView.image];
+    }
+    [listOfNotes saveNotes];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - ImageView
 
-- (IBAction)pickImageSource:(UIBarButtonItem *)sender {
+- (IBAction)pickImageSource:(UIBarButtonItem *)sender
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Photo Source"
                                                     message:@"Select the Photo Source"
                                                    delegate:self
@@ -160,21 +180,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    if(![self.noteTitle isEqual:@""]) {
-        NoteList *listOfNotes = [NoteList noteSingleton];
-        if(self.thisNote == nil) {
-            [listOfNotes addNoteToNoteList:self.noteTitle.text noteBody:self.noteText.text image:self.noteImageView.image time:[NSDate date]];
-        } else {
-            [self.thisNote setNoteTitle:self.noteTitle.text];
-            [self.thisNote setNoteText:self.noteText.text];
-            [self.thisNote setNoteImage:self.noteImageView.image];
-        }
-        [listOfNotes saveNotes];
-    }
 }
 
 
